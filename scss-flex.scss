@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+
+// flex-direction value is row
+
+@mixin flex($types) {
+  display: flex;
+  flex-direction: row;
+
+  @each $type in $types {
+
+    @if( $type == start ){ justify-content: start; }
+    @if( $type == center ){ justify-content: center; }
+    @if( $type == end ){ justify-content: flex-end; }
+    @if( $type == between ){ justify-content: space-between; }
+    @if( $type == around ){ justify-content: space-around; }
+
+    @if( $type == top ){ align-items: flex-start; }
+    @if( $type == middle ){ align-items: center; }
+    @if( $type == bottom ){ align-items: flex-end; }
+
+  }
+}
+
+@mixin flex-wrap($types) {
+  flex-wrap: wrap;
+
+  @each $type in $types {
+
+    @if( $type == auto ){ align-content: initial; }
+    
+    @if( $type == top ){ align-content: start; }
+    @if( $type == middle ){ align-content: center; }
+    @if( $type == bottom ){ align-content: flex-end; }
+
+    @if( $type == between ){ align-content: space-between; }
+    @if( $type == around ){ align-content: space-around; }
+
+  }
+}
+
+@mixin flex-self($types) {
+
+  @each $type in $types {
+      @if( $type == auto ){ flex: auto; }
+      @if( $type == none ){ flex: none; }
+
+      @if( $type == top ){ align-self: start; }
+      @if( $type == middle ){ align-self: center; }
+      @if( $type == bottom ){ align-self: flex-end; }
+      @if( $type == full ){
+        height: auto;
+        align-self: stretch;
+      }
+  }
+}
+
+
+// flex-direction value is column
+
+@mixin flex-column($types) {
+  display: flex;
+  flex-direction: column;
+
+  @each $type in $types {
+
+    @if( $type == top ){ justify-content: start; }
+    @if( $type == middle ){ justify-content: center; }
+    @if( $type == bottom ){ justify-content: flex-end; }
+    @if( $type == between ){ justify-content: space-between; }
+    @if( $type == around ){ justify-content: space-around; }
+
+    @if( $type == start ){ align-items: flex-start; }
+    @if( $type == center ){ align-items: center; }
+    @if( $type == end ){ align-items: flex-end; }
+
+  }
+
+}
+
+@mixin flex-column-wrap($types) {
+  flex-wrap: wrap;
+
+  @each $type in $types {
+
+    @if( $type == auto ){ align-content: initial; }
+
+    @if( $type == start ){ align-content: start; }
+    @if( $type == center ){ align-content: center; }
+    @if( $type == end ){ align-content: flex-end; }
+
+    @if( $type == between ){ align-content: space-between; }
+    @if( $type == around ){ align-content: space-around; }
+
+  }
+}
+
+@mixin flex-column-self($types) {
+
+  @each $type in $types {
+
+    @if( $type == auto ){ flex: auto; }
+    @if( $type == none ){ flex: none; }
+
+    @if( $type == start ){ align-self: start; }
+    @if( $type == center ){ align-self: center; }
+    @if( $type == end ){ align-self: flex-end; }
+    @if( $type == full ){
+      width: auto;
+      align-self: stretch;
+    }
+
+  }
+}
