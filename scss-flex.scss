@@ -19,7 +19,7 @@
 
 }
 
-@mixin flex-wrap($align) {
+@mixin flex-wrap($align: top) {
   flex-wrap: wrap;
 
   @if $align == auto { align-content: initial; }
@@ -31,7 +31,11 @@
 
 }
 
-@mixin flex-self($align, $flex: Null) {
+@mixin flex-self($flex: auto, $align: auto) {
+
+  @if $flex == auto {}
+  @else if $flex == full { flex: auto; }
+  @else if $flex == keep { flex: none; }
 
   @if $align == auto { align-self: initial; }
   @else if $align == top { align-self: start; }
@@ -39,8 +43,6 @@
   @else if $align == bottom { align-self: flex-end; }
   @else if $align == full { height: auto; align-self: stretch; }
 
-  @if $flex == auto { flex: auto; }
-  @else if $flex == none { flex: none; }
 }
 
 
@@ -62,7 +64,7 @@
 
 }
 
-@mixin flex-column-wrap($align) {
+@mixin flex-column-wrap($align: start) {
   flex-wrap: wrap;
 
   @if $align == auto { align-content: initial; }
@@ -74,7 +76,11 @@
 
 }
 
-@mixin flex-column-self($align, $flex: Null) {
+@mixin flex-column-self($flex: auto, $align: auto) {
+
+  @if $flex == auto {}
+  @else if $flex == full { flex: auto; }
+  @else if $flex == keep { flex: none; }
 
   @if $align == auto { align-self: initial; }
   @else if $align == start { align-self: start; }
@@ -82,6 +88,4 @@
   @else if $align == end { align-self: flex-end; }
   @else if $align == full { width: auto; align-self: stretch; }
 
-  @if $flex == auto { flex: auto; }
-  @else if $flex == none { flex: none; }
 }
