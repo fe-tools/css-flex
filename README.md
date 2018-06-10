@@ -2,108 +2,173 @@
 
 > 用于 Flex 布局模块的 scss 混合宏。
 
-## 安装
+## Installation
 
-使用 npm 安装。
+### npm
 
 ```bash
-$ npm install @nn-yy/scss-flex --save-dev
+$ npm i @nn-yy/scss-flex --save-dev
 ```
 
 将仓库克隆或下载到本地。
 
-## 使用
+## Usage
 
 在 scss 中导入 scss-flex.scss 文件。
 
 ```scss
 @import 'scss-flex';
 ```
-  
-使用 webpack 时需要添加 '~' 前缀将路径指向 node_modules。
+
+在 webpack 中使用 '~' 前缀将路径指向 node_modules。
 
 ```scss
 @import '~@nn-yy/scss-flex';
 ```
 
-### 容器内容水平垂直居中：
+## Example
 
-```scss
-.container {
-  @include flex( center, middle );
-}
+### Base layout
+
+![example-1](./doc/images/example-1.gif)
+
+### Complex layout
+
+![example-2](./doc/images/example-2.png)
+
+see [demo](https://codepen.io/wizard67/full/VdPPyQ/)
+
+## Feature
+
+* 简单易用的函数方法
+* 参数错误提示
+
+## Document
+
+### Schematic
+
+```bash
+  ┌── start ───┬── center ──┬──── end ───┐
+ top           │            │            │
+  ├────────────┼────────────┼────────────┤
+middle         │    ████    │            │
+  ├────────────┼────────────┼────────────┤
+bottom         │            │            │
+  └────────────┴────────────┴────────────┘
+
+<justify>: start | center | end
+  <align>:   top | middle | bottom
+
+
+between ├███ ────────── ███ ────────── ███┤
+
+around  ├── ███ ─────── ███ ─────── ███ ──┤
+
+<space>: between | around
+
+
+keep    ├███ ███ ███ ─────────────────────┤
+full    ├█╠╠╠╠╠╠╠╠╠╠███╣╣╣╣╣╣╣╣╣╣█ ███ ███┤
+
+<flex>: auto | keep | full
 ```
 
-![example-01](./doc/images/example-01.png)
+### API
 
-### 容器内容两端对齐并居于底部，指定的项目垂直居中：
+scss-flex 为容器内容 `横排序(row)` 和 `纵(column)排序` 各提供了 3 个方法：
 
-```scss
-.container {
-    @include flex( between, bottom );
-}
-.item:nth-child(2) {
-    @include flex-self( middle );
-}
-```
+#### flex( row: start, column: top )
 
-![example-02](./doc/images/example-02.png)
+> 声明横排序的 Flex 容器，`row` 为水平方向参数，`column` 为垂直方向参数。
 
-### 容器内容两端对齐并垂直居中，允许项目自动换行并使轴线与交叉轴中点对齐：
+* row：`<justify> | <space>`
+    * `start` 居左
+    * `center` 水平居中
+    * `end` 居右
+    * `between` 两端对齐
+    * `around` 等距分布
 
-```scss
-.container {
-    @include flex(between, bottom);
-    @include flex-wrap( middle );
-}
-```
+* column：`<align>`
+    * `top` 居顶部
+    * `middle` 垂直居中
+    * `bottom` 居底部
 
-![example-03](./doc/images/example-03.png)
+#### flex-wrap( column: top )
 
-### 容器内容按列排序，水平居中垂直于底部，指定的项目填充轴线空间：
+> 允许容器内容换行，`column` 为多行时轴线的垂直方向参数。
 
-```scss
-.container {
-    @include flex-column( center, bottom );
-}
-.item:nth-child(2) {
-    @include flex-column-self( full );
-}
-```
+* column：`auto | <align> | <space>`
+    * `auto` 默认分布
+    * `top` 居顶部
+    * `middle` 垂直居中
+    * `bottom` 居底部
+    * `between` 两端对齐
+    * `around` 等距分布
 
-![example-04](./doc/images/example-04.png)
 
-## API
+#### flex-self( flex , column: auto )
 
-![grid](./doc/images/grid.png)
+> 定义横排序中项目自身的位置与尺寸。`flex` 为项目的尺寸缩放参数，`column` 为项目在垂直方向参数。
 
-> `<justify>: start | center | end`  
-> `<align>: top | middle | bottom`  
-> `<space>: between | around`  
-> `<flex>: auto | none`
+* flex: `<flex>`
+    * `auto` 默认分布
+    * `full` 填充水平轴上剩余空间
+    * `keep` 保持原有尺寸，不受缩放影响
+* column: `auto | full | <align>`
+    * `auto` 默认分布
+    * `top` 居上
+    * `middle` 居中
+    * `bottom` 局底部
+    * `full` 填充垂直轴上剩余空间
 
-scss-flex 为容器内容行（'row'）排列和列（'column'）排列各提供了 3 个方法：
 
-`flex( <justify> | <space>, <align> )`
+#### flex-column( row: start, column: top )
 
-声明 Flex 容器，默认为行（`row`）排列。首个参数指定主轴上的空间分布状况，第二个参数指定交叉轴上的空间分布状况。
+> 声明纵排序的 Flex 容器，`row` 为水平方向参数，`column` 为垂直方向参数。
 
-`flex-wrap( auto | <align> | <space> )`
+* row：`<justify>`
+    * `start` 居左
+    * `center` 水平居中
+    * `end` 居右
+* column：`<align> | <space>`
+    * `top` 居顶部
+    * `middle` 垂直居中
+    * `bottom` 居底部
+    * `between` 两端对齐
+    * `around` 等距分布
 
-允许容器内的项目空间分配不足时自动换行（产生新的交叉轴），参数指定了存在多条交叉轴时，这些轴线的空间分布情况。
+#### flex-column-wrap( column: start )
 
-`flex-self( auto | full | <align> [, <flex>])`
+> 允许容器内容换列，`column` 为多列时轴线的水平方向参数。
 
-指定单个项目的空间分布状况（声明在项目上）。首个参数声明项目的空间分布于分配情况，第二个可选参数声明项目缩放比例。
+* column：`auto | <justify> | <space>`
+    * `auto` 默认分布
+    * `start` 居左
+    * `center` 水平居中
+    * `end` 居右
+    * `between` 两端对齐
+    * `around` 等距分布
 
-`flex-column( <justify>, <align> | <space> )`
+#### flex-colunm-self( flex , row: auto )
 
-声明列（'column'）排列的 Flex 容器。
+> 定义纵排序中项目自身的位置与尺寸。`flex` 为项目的尺寸缩放参数，`row` 为项目在水平方向参数。
 
-`flex-column-wrap( auto | <justify> | <space> )`
+* flex: `<flex>`
+    * `auto` 默认分布
+    * `full` 填充垂直轴上剩余空间
+    * `keep` 保持原有尺寸，不受缩放影响
+* row: `auto | full | <align>`
+    * `auto` 默认分布
+    * `start` 居上
+    * `center` 居中
+    * `end` 局底部
+    * `full` 填充水平轴上剩余空间
 
-允许列排序时自动换行。
+## Comptibility
 
-`flex-column-self( auto | full | <justify> [, flex])`
+项目仅提供标准的 [Flexible Box Layout Module](https://www.w3.org/TR/css-flexbox-1/) 语法，如果需要兼容老版本的语法，需要使用 [autoprefixer](https://github.com/postcss/autoprefixer) 在生产环境中添加兼容前缀。
 
-指定列排序时的单个项目的空间分布情况。
+
+## Log
+
+* 0.3.1 为 `flex` 与 `flex-column` 提供缺省参数
