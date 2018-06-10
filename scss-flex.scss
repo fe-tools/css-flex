@@ -22,7 +22,7 @@
 
 // flex-direction value is row
 
-@mixin flex($justify, $align) {
+@mixin flex($justify: start, $align: top) {
   display: flex;
   flex-direction: row;
 
@@ -82,7 +82,7 @@
 
 // flex-direction value is column
 
-@mixin flex-column($align, $justify) {
+@mixin flex-column($align: start, $justify: top) {
   display: flex;
   flex-direction: column;
 
