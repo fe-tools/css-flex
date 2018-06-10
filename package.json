@@ -1,6 +1,6 @@
 {
   "name": "@nn-yy/scss-flex",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "scss mixin for Flex-layout module",
   "keywords": ["scss", "flex", "flexbox"],
   "main": "scss-flex.scss",
