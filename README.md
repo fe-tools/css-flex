@@ -18,11 +18,25 @@ $ git clone git@github.com:nn-yy/css-flex.git
 
 ## Usage
 
-导入 flex 文件。
+导入 flex 文件，并调用方法。
 
+### scss
+```scss
+@import 'flex';
+
+.container {
+    @include flex( center, middle );
+}
 ```
-@import 'flex';         // scss
+
+### sass
+```sass
+@import flex
+
+.container
+    +flex( center, middle )
 ```
+
 
 注意在 webpack 中使用 '~' 前缀将路径指向 node_modules。
 
@@ -174,6 +188,6 @@ css-flex 为容器内容 `横排序(row)` 和 `纵(column)排序` 各提供了 3
 
 
 ## Log
-
+* 1.1.0 添加 `sass` 文件类型
 * 1.0.0 项目重命名
 * 0.3.1 为 `flex` 与 `flex-column` 提供缺省参数
