@@ -1,140 +1,156 @@
-@charset "UTF-8";
+@charset "UTF-8"
 
 // handle param error
 
-@mixin flexError($param, $type) {
-  position: relative;
-  background-color: #ff3c00 !important;
-  overflow: hidden;
+=flexError($param, $type)
+  position: relative
+  background-color: #ff3c00 !important
+  overflow: hidden
 
-  &::after {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: .5em;
-    color: #ff3c00 !important;
-    background-color: white !important;
-    font-size: 12px;
+  &::after
+    position: absolute
+    bottom: 0
+    right: 0
+    padding: .5em
+    color: #ff3c00 !important
+    background-color: white !important
+    font-size: 12px
     content: "ErrorParam: #{$param} in #{$type}"
-  }
-}
-
 
 // flex-direction value is row
 
-@mixin flex($justify: start, $align: top) {
-  display: flex;
-  flex-direction: row;
+=flex($justify: start, $align: top)
+  display: flex
+  flex-direction: row
 
-  @if $justify == start { justify-content: start; }
-  @else if $justify == center { justify-content: center; }
-  @else if $justify == end { justify-content: flex-end; }
-  @else if $justify == between { justify-content: space-between; }
-  @else if $justify == around { justify-content: space-around; }
-  @else {
-    @include flexError($justify, 'flex');
-  }
+  @if $justify == start
+    justify-content: start
+  @else if $justify == center
+    justify-content: center
+  @else if $justify == end
+    justify-content: flex-end
+  @else if $justify == between
+    justify-content: space-between
+  @else if $justify == around
+    justify-content: space-around
+  @else
+    +flexError($justify, "flex")
 
-  @if $align == top { align-items: flex-start; }
-  @else if $align == middle { align-items: center; }
-  @else if $align == bottom { align-items: flex-end; }
-  @else {
-    @include flexError($align, 'flex');
-  }
+  @if $align == top
+    align-items: flex-start
+  @else if $align == middle
+    align-items: center
+  @else if $align == bottom
+    align-items: flex-end
+  @else
+    +flexError($align, "flex")
 
-}
+=flex-wrap($align: top)
+  flex-wrap: wrap
 
-@mixin flex-wrap($align: top) {
-  flex-wrap: wrap;
+  @if $align == auto
+    align-content: initial
+  @else if $align == top
+    align-content: start
+  @else if $align == middle
+    align-content: center
+  @else if $align == bottom
+    align-content: flex-end
+  @else if $align == between
+    align-content: space-between
+  @else if $align == around
+    align-content: space-around
+  @else
+    +flexError($align, "flex-wrap")
 
-  @if $align == auto { align-content: initial; }
-  @else if $align == top { align-content: start; }
-  @else if $align == middle { align-content: center; }
-  @else if $align == bottom { align-content: flex-end; }
-  @else if $align == between { align-content: space-between; }
-  @else if $align == around { align-content: space-around; }
-  @else {
-    @include flexError($align, 'flex-wrap');
-  }
+=flex-self($flex: auto, $align: auto)
+  @if $flex == auto
+  @else if $flex == full
+    flex: auto
+  @else if $flex == keep
+    flex: none
+  @else
+    +flexError($flex, "flex-self")
 
-}
-
-@mixin flex-self($flex: auto, $align: auto) {
-
-  @if $flex == auto {}
-  @else if $flex == full { flex: auto; }
-  @else if $flex == keep { flex: none; }
-  @else {
-    @include flexError($flex, 'flex-self');
-  }
-
-  @if $align == auto { align-self: initial; }
-  @else if $align == top { align-self: start; }
-  @else if $align == middle { align-self: center; }
-  @else if $align == bottom { align-self: flex-end; }
-  @else if $align == full { height: auto; align-self: stretch; }
-  @else {
-    @include flexError($align, 'flex-self');
-  }
-
-}
-
+  @if $align == auto
+    align-self: initial
+  @else if $align == top
+    align-self: start
+  @else if $align == middle
+    align-self: center
+  @else if $align == bottom
+    align-self: flex-end
+  @else if $align == full
+    height: auto
+    align-self: stretch
+  @else
+    +flexError($align, "flex-self")
 
 // flex-direction value is column
 
-@mixin flex-column($align: start, $justify: top) {
-  display: flex;
-  flex-direction: column;
+=flex-column($align: start, $justify: top)
+  display: flex
+  flex-direction: column
 
-  @if $align == start { align-items: flex-start; }
-  @else if $align == center { align-items: center; }
-  @else if $align == end { align-items: flex-end; }
-  @else {
-    @include flexError($align, 'flex-column');
-  }
+  @if $align == start
+    align-items: flex-start
+  @else if $align == center
+    align-items: center
+  @else if $align == end
+    align-items: flex-end
+  @else
+    +flexError($align, "flex-column")
 
-  @if $justify == top { justify-content: start; }
-  @else if $justify == middle { justify-content: center; }
-  @else if $justify == bottom { justify-content: flex-end; }
-  @else if $justify == between { justify-content: space-between; }
-  @else if $justify == around { justify-content: space-around; }
-  @else {
-    @include flexError($justify, 'flex-column');
-  }
+  @if $justify == top
+    justify-content: start
+  @else if $justify == middle
+    justify-content: center
+  @else if $justify == bottom
+    justify-content: flex-end
+  @else if $justify == between
+    justify-content: space-between
+  @else if $justify == around
+    justify-content: space-around
+  @else
+    +flexError($justify, "flex-column")
 
-}
+=flex-column-wrap($align: start)
+  flex-wrap: wrap
 
-@mixin flex-column-wrap($align: start) {
-  flex-wrap: wrap;
+  @if $align == auto
+    align-content: initial
+  @else if $align == start
+    align-content: start
+  @else if $align == center
+    align-content: center
+  @else if $align == end
+    align-content: flex-end
+  @else if $align == between
+    align-content: space-between
+  @else if $align == around
+    align-content: space-around
+  @else
+    +flexError($align, "flex-column-wrap")
 
-  @if $align == auto { align-content: initial; }
-  @else if $align == start { align-content: start; }
-  @else if $align == center { align-content: center; }
-  @else if $align == end { align-content: flex-end; }
-  @else if $align == between { align-content: space-between; }
-  @else if $align == around { align-content: space-around; }
-  @else {
-    @include flexError($align, 'flex-column-wrap');
-  }
+=flex-column-self($flex: auto, $align: auto)
+  @if $flex == auto
+  @else if $flex == full
+    flex: auto
+  @else if $flex == keep
+    flex: none
+  @else
+    +flexError($flex, "flex-column-self")
 
-}
-
-@mixin flex-column-self($flex: auto, $align: auto) {
-
-  @if $flex == auto {}
-  @else if $flex == full { flex: auto; }
-  @else if $flex == keep { flex: none; }
-  @else {
-    @include flexError($flex, 'flex-column-self');
-  }
-
-  @if $align == auto { align-self: initial; }
-  @else if $align == start { align-self: start; }
-  @else if $align == center { align-self: center; }
-  @else if $align == end { align-self: flex-end; }
-  @else if $align == full { width: auto; align-self: stretch; }
-  @else {
-    @include flexError($align, 'flex-column-self');
-  }
-
-}
+  @if $align == auto
+    align-self: initial
+  @else if $align == start
+    align-self: start
+  @else if $align == center
+    align-self: center
+  @else if $align == end
+    align-self: flex-end
+  @else if $align == full
+    width: auto
+    align-self: stretch
+  @else
+    +flexError($align, "flex-column-self")
