@@ -16,6 +16,18 @@ $ npm i @nn-yy/css-flex --save-dev
 $ git clone git@github.com:nn-yy/css-flex.git
 ```
 
+## Example
+
+### Base layout
+
+![example-1](./doc/images/example-1.gif)
+
+### Complex layout
+
+![example-2](./doc/images/example-2.png)
+
+see [demo](https://codepen.io/wizard67/full/VdPPyQ/)
+
 ## Usage
 
 导入 flex 文件，并调用方法。
@@ -37,29 +49,20 @@ $ git clone git@github.com:nn-yy/css-flex.git
     +flex( center, middle )
 ```
 
+### stylus
+```stylus
+@import 'flex'
 
-注意在 webpack 中使用 '~' 前缀将路径指向 node_modules。
+.container
+    flex( center, middle )
+```
+
+
+**注意在 webpack 中使用 '~' 前缀将路径指向 node_modules。**
 
 ```scss
 @import '~@nn-yy/css-flex/flex';
 ```
-
-## Example
-
-### Base layout
-
-![example-1](./doc/images/example-1.gif)
-
-### Complex layout
-
-![example-2](./doc/images/example-2.png)
-
-see [demo](https://codepen.io/wizard67/full/VdPPyQ/)
-
-## Feature
-
-* 简单易用的函数方法
-* 参数错误提示
 
 ## Document
 
@@ -188,6 +191,8 @@ css-flex 为容器内容 `横排序(row)` 和 `纵(column)排序` 各提供了 3
 
 
 ## Log
-* 1.1.0 添加 `sass` 文件类型
+* 1.2.1 添加 `stylus` 支持
+* 1.1.0 添加 `sass` 支持
 * 1.0.0 项目重命名
 * 0.3.1 为 `flex` 与 `flex-column` 提供缺省参数
+* 0.3.0 添加参数错误提示
