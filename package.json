@@ -1,6 +1,6 @@
 {
   "name": "@nn-yy/css-flex",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Flex-layout module for css pre-processing",
   "keywords": ["css", "scss", "flex", "flexbox"],
   "main": "index.js",
