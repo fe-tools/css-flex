@@ -34,7 +34,7 @@ see [demo](https://codepen.io/wizard67/full/VdPPyQ/)
 
 ### scss
 ```scss
-@import 'flex';
+@import "flex";
 
 .container {
     @include flex( center, middle );
@@ -49,9 +49,18 @@ see [demo](https://codepen.io/wizard67/full/VdPPyQ/)
     +flex( center, middle )
 ```
 
+### less
+```less
+@import "flex"
+
+.container{
+  .flex( between, middle )
+}
+```
+
 ### stylus
 ```stylus
-@import 'flex'
+@import "flex"
 
 .container
     flex( center, middle )
@@ -191,7 +200,8 @@ css-flex 为容器内容 `横排序(row)` 和 `纵(column)排序` 各提供了 3
 
 
 ## Log
-* 1.2.1 添加 `stylus` 支持
+* 1.3.0 添加 `less` 支持
+* 1.2.0 添加 `stylus` 支持
 * 1.1.0 添加 `sass` 支持
 * 1.0.0 项目重命名
 * 0.3.1 为 `flex` 与 `flex-column` 提供缺省参数
