@@ -1,29 +1,33 @@
-# scss-flex
+# css-flex
 
-> 用于 Flex 布局模块的 scss 混合宏。
+> 用于 Flex 布局模块的 CSS 预处理功能
 
 ## Installation
 
 ### npm
 
 ```bash
-$ npm i @nn-yy/scss-flex --save-dev
+$ npm i @nn-yy/css-flex --save-dev
 ```
 
-将仓库克隆或下载到本地。
+### 将仓库克隆或下载到本地。
+
+```bash
+$ git clone git@github.com:nn-yy/css-flex.git
+```
 
 ## Usage
 
-在 scss 中导入 scss-flex.scss 文件。
+导入 flex 文件。
 
-```scss
-@import 'scss-flex';
+```
+@import 'flex';         // scss
 ```
 
-在 webpack 中使用 '~' 前缀将路径指向 node_modules。
+注意在 webpack 中使用 '~' 前缀将路径指向 node_modules。
 
 ```scss
-@import '~@nn-yy/scss-flex';
+@import '~@nn-yy/css-flex/flex';
 ```
 
 ## Example
@@ -75,7 +79,7 @@ full    ├█╠╠╠╠╠╠╠╠╠╠███╣╣╣╣╣╣╣╣╣
 
 ### API
 
-scss-flex 为容器内容 `横排序(row)` 和 `纵(column)排序` 各提供了 3 个方法：
+css-flex 为容器内容 `横排序(row)` 和 `纵(column)排序` 各提供了 3 个方法：
 
 #### flex( row: start, column: top )
 
@@ -171,4 +175,5 @@ scss-flex 为容器内容 `横排序(row)` 和 `纵(column)排序` 各提供了 
 
 ## Log
 
+* 1.0.0 项目重命名
 * 0.3.1 为 `flex` 与 `flex-column` 提供缺省参数

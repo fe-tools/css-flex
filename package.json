@@ -1,14 +1,14 @@
 {
-  "name": "@nn-yy/scss-flex",
+  "name": "@nn-yy/css-flex",
   "version": "0.3.2",
-  "description": "scss mixin for Flex-layout module",
-  "keywords": ["scss", "flex", "flexbox"],
-  "main": "scss-flex.scss",
+  "description": "Flex-layout module for css pre-processing",
+  "keywords": ["css", "scss", "flex", "flexbox"],
+  "main": "index.js",
   "author": {
     "name": "Wizard67",
     "url": "https://github.com/Wizard67"
   },
-  "homepage": "https://github.com/nn-yy/scss-flex",
-  "bugs": "https://github.com/nn-yy/scss-flex/issues",
+  "homepage": "https://github.com/nn-yy/css-flex",
+  "bugs": "https://github.com/nn-yy/css-flex/issues",
   "license": "MIT"
 }
