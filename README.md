@@ -179,7 +179,7 @@ css-flex 为容器内容 `横排序(row)` 和 `纵(column)排序` 各提供了 3
     * `between` 两端对齐
     * `around` 等距分布
 
-#### flex-colunm-self( flex , row: auto )
+#### flex-column-self( flex , row: auto )
 
 > 定义纵排序中项目自身的位置与尺寸。`flex` 为项目的尺寸缩放参数，`row` 为项目在水平方向参数。
 
