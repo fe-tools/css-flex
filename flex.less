@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: row;
 
-  & when ( @justify = start ) { justify-content: start; }
+  & when ( @justify = start ) { justify-content: flex-start; }
   & when ( @justify = center ) { justify-content: center; }
   & when ( @justify = end ) { justify-content: flex-end; }
   & when ( @justify = between ) { justify-content: space-between; }
@@ -48,7 +48,7 @@
   flex-wrap: wrap;
 
   & when ( @align = auto ) { align-content: initial; }
-  & when ( @align = top ) { align-content: start; }
+  & when ( @align = top ) { align-content: flex-start; }
   & when ( @align = middle ) { align-content: center; }
   & when ( @align = bottom ) { align-content: flex-end; }
   & when ( @align = between ) { align-content: space-between; }
@@ -69,7 +69,7 @@
   }
 
   & when ( @align = auto ) { align-self: initial; }
-  & when ( @align = top ) { align-self: start; }
+  & when ( @align = top ) { align-self: flex-start; }
   & when ( @align = middle ) { align-self: center; }
   & when ( @align = bottom ) { align-self: flex-end; }
   & when ( @align = full ) { height: auto; align-self: stretch; }
@@ -93,7 +93,7 @@
     .flexError(@align, 'flex-column')
   }
 
-  & when ( @justify = top ) { justify-content: start; }
+  & when ( @justify = top ) { justify-content: flex-start; }
   & when ( @justify = middle ) { justify-content: center; }
   & when ( @justify = bottom ) { justify-content: flex-end; }
   & when ( @justify = between ) { justify-content: space-between; }
@@ -108,7 +108,7 @@
   flex-wrap: wrap;
 
   & when ( @align = auto ) { align-content: initial; }
-  & when ( @align = start ) { align-content: start; }
+  & when ( @align = start ) { align-content: flex-start; }
   & when ( @align = center ) { align-content: center; }
   & when ( @align = end ) { align-content: flex-end; }
   & when ( @align = between ) { align-content: space-between; }
@@ -129,7 +129,7 @@
   }
 
   & when ( @align = auto ) { align-self: initial; }
-  & when ( @align = start ) { align-self: start; }
+  & when ( @align = start ) { align-self: flex-start; }
   & when ( @align = center ) { align-self: center; }
   & when ( @align = end ) { align-self: flex-end; }
   & when ( @align = full ) { width: auto; align-self: stretch; }
