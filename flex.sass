@@ -24,7 +24,7 @@
   flex-direction: row
 
   @if $justify == start
-    justify-content: start
+    justify-content: flex-start
   @else if $justify == center
     justify-content: center
   @else if $justify == end
@@ -51,7 +51,7 @@
   @if $align == auto
     align-content: initial
   @else if $align == top
-    align-content: start
+    align-content: flex-start
   @else if $align == middle
     align-content: center
   @else if $align == bottom
@@ -75,7 +75,7 @@
   @if $align == auto
     align-self: initial
   @else if $align == top
-    align-self: start
+    align-self: flex-start
   @else if $align == middle
     align-self: center
   @else if $align == bottom
@@ -102,7 +102,7 @@
     +flexError($align, "flex-column")
 
   @if $justify == top
-    justify-content: start
+    justify-content: flex-start
   @else if $justify == middle
     justify-content: center
   @else if $justify == bottom
@@ -120,7 +120,7 @@
   @if $align == auto
     align-content: initial
   @else if $align == start
-    align-content: start
+    align-content: flex-start
   @else if $align == center
     align-content: center
   @else if $align == end
@@ -144,7 +144,7 @@
   @if $align == auto
     align-self: initial
   @else if $align == start
-    align-self: start
+    align-self: flex-start
   @else if $align == center
     align-self: center
   @else if $align == end
